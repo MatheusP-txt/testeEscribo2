@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:teste_escribo_2/components/mybook.dart';
 import 'package:teste_escribo_2/data/bookdata.dart';
+import 'package:vocsy_epub_viewer/epub_viewer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -122,11 +124,31 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 "Meus Livros",
-                style: TextStyle(fontSize: 20.0),
+                style: TextStyle(
+                  fontSize: 20.0,
+                  ),
               ),
-              SizedBox(height: 12.0
-              
-              ,)
+              SizedBox(
+                height: 12.0,
+              ),
+               Container(
+                width: double.infinity,
+                height: 280.0,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: books.length,
+                  itemBuilder: (_, index) {
+                    return InkWell(
+                      child: myBook(books[index]),
+                      onTap: () async {
+                        final file = await books[index].downloadBook();
+                        VocsyEpub.open(file.path);
+                      },
+
+                    );
+                  },
+                ),
+              ),
             ]),
       )),
     );
