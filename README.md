@@ -1,4 +1,4 @@
-# TesteEscribo
+# TesteEscribo2
 - Nome: Matheus Portilho
 ## Objetivo do Projeto
 Desenvolver um aplicativo para leitura de eBooks que ofereça uma experiência interativa e fácil de usar para os usuários
@@ -45,5 +45,6 @@ Isso iniciará o aplicativo no emulador ou dispositivo conectado.
 - Certifique-se de ter um emulador configurado ou um dispositivo físico conectado.
 - Se estiver usando um dispositivo físico, ative as opções de desenvolvedor e habilite a depuração USB.
 ## Para testar no celular
-- Vou disponibilizar um apk para download, para que seja feito o teste tambem nos dispositivos moveis: 
+- Vou disponibilizar um apk para download, para que seja feito o teste tambem nos dispositivos moveis:[Baixar a última versão do APK](link-para-o-seu-apk](https://github.com/MatheusP-txt/testeEscribo2/releases/tag/APK)https://github.com/MatheusP-txt/testeEscribo2/releases/tag/APK)
+ 
 
