@@ -1,16 +1,49 @@
-# teste_escribo_2
+# TesteEscribo
+- Nome: Matheus Portilho
+## Objetivo do Projeto
+Desenvolver um aplicativo para leitura de eBooks que ofereça uma experiência interativa e fácil de usar para os usuários
+## Tecnologias Utilizadas
+- DART
+- Flutter
+- Android Studio
+- VS Code
 
-A new Flutter project.
+## Pré-requisitos
 
-## Getting Started
+Antes de começar, certifique-se de ter o Flutter instalado em seu sistema. Para mais informações sobre como instalar o Flutter, consulte a [documentação oficial do Flutter](https://flutter.dev/docs/get-started/install).
 
-This project is a starting point for a Flutter application.
+## Como executar o projeto
 
-A few resources to get you started if this is your first Flutter project:
+1. Clone o repositório para sua máquina local:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+git clone https://github.com/seu-usuario/ebook-reader-app.git
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. Navegue até o diretório do projeto:
+
+```bash
+cd ebook-reader-app
+```
+
+3. Instale as dependências:
+
+```bash
+flutter pub get
+```
+
+4. Execute o aplicativo:
+
+```bash
+flutter run
+```
+
+Isso iniciará o aplicativo no emulador ou dispositivo conectado.
+
+## Configurações adicionais
+
+- Certifique-se de ter um emulador configurado ou um dispositivo físico conectado.
+- Se estiver usando um dispositivo físico, ative as opções de desenvolvedor e habilite a depuração USB.
+## Para testar no celular
+- Vou disponibilizar um apk para download, para que seja feito o teste tambem nos dispositivos moveis: 
+
