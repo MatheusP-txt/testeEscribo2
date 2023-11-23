@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:teste_escribo_2/components/mybook.dart';
 import 'package:teste_escribo_2/data/bookdata.dart';
 import 'package:vocsy_epub_viewer/epub_viewer.dart';
@@ -27,7 +28,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   List<BookData> books = [
     BookData(
       id: "1",
@@ -103,6 +103,18 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    VocsyEpub.setConfig(
+      scrollDirection: EpubScrollDirection.ALLDIRECTIONS,
+      allowSharing: true,
+      enableTts: true,
+      nightMode: true,
+    );
+
+    Permission.storage.request();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +126,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SingleChildScrollView(
           child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 18.0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,12 +138,12 @@ class _HomePageState extends State<HomePage> {
                 "Meus Livros",
                 style: TextStyle(
                   fontSize: 20.0,
-                  ),
+                ),
               ),
               SizedBox(
                 height: 12.0,
               ),
-               Container(
+              Container(
                 width: double.infinity,
                 height: 280.0,
                 child: ListView.builder(
@@ -144,11 +156,48 @@ class _HomePageState extends State<HomePage> {
                         final file = await books[index].downloadBook();
                         VocsyEpub.open(file.path);
                       },
-
+                      onLongPress: () {
+                        setState(() {
+                          books[index].isFavorite = true;
+                        });
+                      },
                     );
                   },
                 ),
               ),
+              Text(
+                "Favoritos",
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+              SizedBox(
+                height: 12.0,
+              ),
+              Container(
+                width: double.infinity,
+                height: 280.0,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: books.length,
+                  itemBuilder: (_, index) {
+                    return books[index].isFavorite
+                        ? InkWell(
+                            child: myBook(books[index]),
+                            onTap: () async {
+                              final file = await books[index].downloadBook();
+                              VocsyEpub.open(file.path);
+                            },
+                            onLongPress: () {
+                              setState(() {
+                                books[index].isFavorite = false;
+                              });
+                            },
+                          )
+                        : SizedBox.shrink();
+                  },
+                ),
+              )
             ]),
       )),
     );

@@ -8,6 +8,7 @@ class BookData {
   String bookTitle;
   String author;
   String downloadUrl;
+  bool isFavorite;
 
   BookData({
     required this.id,
@@ -15,6 +16,7 @@ class BookData {
     required this.bookTitle,
     required this.author,
     required this.downloadUrl,
+    this.isFavorite = false,
   });
 
   factory BookData.fromJson(Map<String, dynamic> json) {
